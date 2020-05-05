@@ -1,5 +1,8 @@
 <template>
-  <div>Search</div>
+  <div>
+    <h2>接受params参数：keyword={{ $route.params.keyword }}</h2>
+    <h2>接受query参数：keyword2={{ $route.query.keyword2 }}</h2>
+  </div>
 </template>
 
 <script>

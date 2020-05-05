@@ -9,7 +9,7 @@ export default [
     component: Home,
   },
   {
-    path: "/search",
+    path: "/search/:keyword",
     component: Search,
   },
   {
