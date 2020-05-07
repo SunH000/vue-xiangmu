@@ -3,7 +3,7 @@
     <Header></Header>
     <!-- 显示当前匹配的路由组件 -->
     <router-view></router-view>
-    <Footer></Footer>
+    <Footer v-show="!$route.meta.isHideFooter"></Footer>
   </div>
 </template>
 
@@ -16,10 +16,13 @@ export default {
   name: "App",
 
   async mounted() {
-    const result = await reqBaseCategoryList();
-    console.log("result", result);
-    const result2 = await reqLogin("13700000000", "111111");
-    console.log("result2", result2);
+    // const result = await reqBaseCategoryList();
+    // console.log("result", result);
+    // const result2 = await reqLogin("13700000000", "111111");
+    // console.log("result2", result2);
+
+    const result = await reqFloors();
+    console.log("mock result", result);
   },
 
   components: {

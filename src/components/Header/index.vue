@@ -62,9 +62,27 @@ export default {
   },
   methods: {
     search() {
-      this.$router.push(
-        `/search/${this.keyword}?keyword2=${this.keyword.toUpperCase()}`
-      );
+      // this.$router.push(
+      //   `/search/${this.keyword}?keyword2=${this.keyword.toUpperCase()}`
+      // );
+
+      const keyword = this.keyword;
+
+      const location = {
+        name: "search",
+      };
+
+      //如果keyword有值 制定params
+      if (keyword) {
+        location.params = { keyword };
+      }
+
+      // 携带当前原本的query
+      const { query } = this.$route;
+      location.query = query;
+
+      //跳转到search
+      this.$route.push(location);
     },
   },
 };
