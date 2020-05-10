@@ -32,17 +32,18 @@
         </router-link>
       </h1>
       <div class="searchArea">
-        <form action="###" class="searchForm">
+        <form action="/xxx" class="searchForm">
           <input
             type="text"
             id="autocomplete"
             class="input-error input-xxlarge"
             v-model="keyword"
+            placeholder = '关键字'
           />
           <button
             class="sui-btn btn-xlarge btn-danger"
             type="button"
-            @click="search"
+            @click.prevent="search"
           >
             搜索
           </button>
@@ -57,9 +58,15 @@ export default {
   name: "Header",
   data() {
     return {
-      keyword: "meiqiu",
+      keyword: "",
     };
   },
+  mounted () {
+      // 在Header, 通过事件总线对象绑定事件监听来接收消息, 从而可以更新数据
+      this.$bus.$on('removeKeyword', () => {
+        this.keyword = ''
+      })
+    },
   methods: {
     search() {
       // this.$router.push(
@@ -82,7 +89,13 @@ export default {
       location.query = query;
 
       //跳转到search
-      this.$route.push(location);
+      //this.$route.push(location);
+
+      if (this.$route.path.indexOf('/search') === 0) {
+          this.$router.replace(location)
+      } else {
+          this.$router.push(location)
+      }
     },
   },
 };
