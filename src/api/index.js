@@ -26,3 +26,9 @@ export const reqProductList = (searchParams) => ajax({
     method: 'POST',
     data: searchParams
 })
+
+//请求获取指定id的商品信息
+// /api/item/{skuId}
+export const reqProduct = (skuId) => ajax(`/item/${skuId}`)
+
+// reqProduct(6)

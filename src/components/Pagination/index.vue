@@ -139,6 +139,8 @@
       设置新的当前页码
       */
       setCurrentPage (currentPage) {
+        //如果设置的就是当前页码 直接结束
+        if(currentPage===this.myCurrentPage) return
         // 一定要是更新自己data中的当前页码, 而不更新接收的currentPage属性
         this.myCurrentPage = currentPage
         // 分发vue自定义事件: 通知父组件, 当前页码变化了
