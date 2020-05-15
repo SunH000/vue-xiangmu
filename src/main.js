@@ -8,6 +8,8 @@ import Carousel from '@/components/Carousel'
 import Pagination from '@/components/Pagination'
 import store from "./store";
 import "./mock/mockServer";
+import './validate'
+import * as API from '@/api'
 // 去掉不是生产环境的提示
 Vue.config.productionTip = false;
 

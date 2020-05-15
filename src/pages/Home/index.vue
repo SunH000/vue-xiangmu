@@ -5,7 +5,6 @@
     <TodayRecommend />
     <Rank />
     <Like />
-    <Floor />
     <Floor v-for="floor in floors" :key="floor.id" :floor="floor"/>
     <Brand />
   </div>

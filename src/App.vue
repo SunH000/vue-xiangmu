@@ -16,14 +16,6 @@ export default {
   name: "App",
 
   async mounted() {
-    // const result = await reqBaseCategoryList();
-    // console.log("result", result);
-    // const result2 = await reqLogin("13700000000", "111111");
-    // console.log("result2", result2);
-
-    // const result = await reqFloors();
-    // console.log("mock result", result);
-
     //通过异步action获取异步数据到vuex的state中
     this.$store.dispatch('getBaseCategoryList')
   },
