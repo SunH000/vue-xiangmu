@@ -39,7 +39,20 @@
       // 从sessionStorage中读取前面保存的skuInfo
       this.skuInfo = JSON.parse(window.sessionStorage.getItem('SKU_INFO_KEY'))
       // this.skuInfo = JSON.parse(window.localStorage.getItem('SKU_INFO_KEY'))
+    },
+
+    beforeRouteEnter (to, from, next) {
+      next((component)=>{
+        const skuNum = component.$route.query.skuNum
+        const skuInfo = JSON.parse(window.sessionStorage.getItem('SKU_INFO_KEY'))
+        if (skuNum && skuInfo) {
+          next()
+        }else{
+          next('/')
+        }
+      })
     }
+
   }
 </script>
 

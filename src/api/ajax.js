@@ -69,14 +69,3 @@ instance.interceptors.response.use(
 
 // 向外暴露封装好的instance
 export default instance
-
-/* 
-发ajax请求
-instance('/xxx')
-instance.get()
-instance.post()
-
-instance('/xxx').then(result => {
-  const array = result.data
-})
-*/

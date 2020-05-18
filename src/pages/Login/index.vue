@@ -83,7 +83,15 @@
           await this.$store.dispatch('login',{mobile,password})
 
           //登录成功跳转到首页
-          this.$router.replace('/')
+          // this.$router.replace('/')
+          //读取出redirect参数
+          const redirect = this.$route.query.redirect
+          if (redirect) {
+            this.$router.replace(redirect)
+          } else {
+            this.$router.replace('/')
+          }
+          
         } catch (error) { 
           alert(error.message)
         }

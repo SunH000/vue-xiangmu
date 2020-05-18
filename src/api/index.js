@@ -114,3 +114,34 @@ export const reqRegister = (userInfo) => ajax.post('/user/passport/register', us
 /api/user/passport/logout
 */
 export const reqLogout = () => ajax('/user/passport/logout')
+
+//获取订单列表
+//   /api/order/auth/{page}/{limit}  GET
+export const reqMyOrders = (page, limit) => ajax(`/order/auth/${page}/${limit}`)
+
+//获取订单交易页信息
+export const reqTradeInfo = () => ajax('/order/auth/trade')
+
+
+export const reqSubmitOrder = (tradeNo, orderInfo) => ajax({
+        url: '/order/auth/submitOrder',
+        method: 'POST',
+        params: { tradeNo }, //指定的是请求的query参数
+        data: orderInfo, ///指定请求体数据对象   当前是包含订单
+
+    }) //当前是基于axios的配置 不是vue—router
+
+
+//获取订单支付信息
+///  /api/payment/weixin/createNative/{orderId}  GET
+export const reqPayInfo = (orderId) => ajax(`/payment/weixin/createNative/${orderId}`)
+
+
+
+// 查询支付订单状态
+export const reqOrderStatus = (orderId) => ajax(`/payment/weixin/queryPayStatus/${orderId}`)
+
+
+
+
+//
